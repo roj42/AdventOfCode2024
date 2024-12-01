@@ -1,1 +1,1 @@
-# AdventOfCode2024
+# No U
