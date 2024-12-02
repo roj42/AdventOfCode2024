@@ -16,7 +16,6 @@ func day2(scanner *bufio.Scanner) string {
 	grandTotal := 0
 
 	//fancy scanner iteration
-out:
 	for scanner.Scan() {
 		// log("line:", scanner.Text())
 
