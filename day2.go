@@ -30,36 +30,10 @@ out:
 			lineInts = append(lineInts, num)
 		}
 
-		//check line for safety
-		var direction bool
-		var dirSet bool
-		for i := 0; i < len(lineInts)-1; i++ {
-			first, second := lineInts[i], lineInts[i+1]
-
-			//unsafe level change or no level change
-			if first == second || absDiff(first, second) > 3 {
-				continue out
-			}
-
-			//we can check a direction change
-			curDir := first > second
-			if !dirSet { //unset direction, establish and skip check
-				direction = curDir
-				dirSet = true
-				continue
-			}
-			if curDir != direction {
-				//direction change!
-				continue out
-			}
-
+		if safeLine(lineInts) {
+			log("safe line: ", scanner.Text())
+			grandTotal++
 		}
-
-		// log("safe!")
-		//all checks pass? good
-		log("safe line: ", scanner.Text())
-		grandTotal++
-
 	}
 
 	//scanner is weird about errors. It will kick us out of the loop that .Scan() produces if there is one, so yay
