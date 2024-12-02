@@ -40,7 +40,7 @@ func day1_2(scanner *bufio.Scanner) string {
 		check(err)
 	}
 
-	//go through the lists, multiplying matchtes by counts.
+	//go through the lists, multiplying matches by counts.
 	for keyNum := range leftMap {
 		//multiply number of times keyNum appears in right by itself, also by how many times lefykey appeared
 		// log("key ", keyNum, ": ", " left times ", leftMap[keyNum], ", right times ", rightMap[keyNum])
@@ -86,7 +86,7 @@ func day1(scanner *bufio.Scanner) string {
 
 	//go through the lists, comparing distances and adding to our grand total
 	for i := range leftList {
-		distance := diff(leftList[i], rightList[i])
+		distance := absDiff(leftList[i], rightList[i])
 		// log("Line ", i, ": ", distance, " between ", leftList[i], " and ", rightList[i])
 		grandTotal += distance
 	}
@@ -94,7 +94,7 @@ func day1(scanner *bufio.Scanner) string {
 	return fmt.Sprint(grandTotal)
 }
 
-func diff(a, b int) int {
+func absDiff(a, b int) int {
 	if a < b {
 		return b - a
 	}

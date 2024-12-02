@@ -25,7 +25,7 @@ func log(inputs ...any) {
 func main() {
 
 	minday := 1
-	maxday := 1
+	maxday := 2
 
 	//flags for test and second puzzle
 
@@ -71,6 +71,10 @@ func main() {
 		fmt.Println(day1(scanner))
 	case "1_2":
 		fmt.Println(day1_2(scanner))
+	case "2":
+		fmt.Println(day2(scanner))
+	case "2_2":
+		fmt.Println(day2_2(scanner))
 
 	default:
 		log("no implementation for day: " + dayInput)
