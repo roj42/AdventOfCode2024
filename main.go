@@ -25,7 +25,7 @@ func log(inputs ...any) {
 func main() {
 
 	minday := 1
-	maxday := 2
+	maxday := 3
 
 	//flags for test and second puzzle
 
@@ -42,12 +42,14 @@ func main() {
 
 	//day string
 	dayInput := strconv.Itoa(*dayPtr)
+
+	filePrefix := dayInput
+
 	//determine if second
 	if *secondPtr {
 		dayInput = dayInput + "_2"
 	}
 
-	filePrefix := dayInput
 	//testflag means load the test file
 	if *testPtr {
 		filePrefix = filePrefix + "_t"
@@ -75,6 +77,10 @@ func main() {
 		fmt.Println(day2(scanner))
 	case "2_2":
 		fmt.Println(day2_2(scanner))
+	case "3":
+		fmt.Println(day3(scanner))
+	case "3_2":
+		fmt.Println(day3_2(scanner))
 
 	default:
 		log("no implementation for day: " + dayInput)
