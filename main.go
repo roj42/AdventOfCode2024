@@ -24,9 +24,6 @@ func log(inputs ...any) {
 
 func main() {
 
-	minday := 1
-	maxday := 3
-
 	//flags for test and second puzzle
 
 	dayPtr := flag.Int("d", 1, "the day")
@@ -34,11 +31,6 @@ func main() {
 	secondPtr := flag.Bool("2", false, "second puzzle?")
 
 	flag.Parse()
-
-	if *dayPtr < minday || *dayPtr > maxday {
-		message := "day not recognized! From " + strconv.Itoa(minday) + " to " + strconv.Itoa(minday) + " supported"
-		panic(message)
-	}
 
 	//day string
 	dayInput := strconv.Itoa(*dayPtr)
@@ -81,6 +73,8 @@ func main() {
 		fmt.Println(day3(scanner))
 	case "3_2":
 		fmt.Println(day3_2(scanner))
+	case "4":
+		fmt.Println(day4(scanner))
 
 	default:
 		log("no implementation for day: " + dayInput)
